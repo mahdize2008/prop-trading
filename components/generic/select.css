@@ -1,0 +1,25 @@
+.select-wrap .react-select__control {
+    @apply w-full lg:h-11 h-10 border border-solid border-neutral-dark rounded-md !outline-none !shadow-none
+}
+.select-wrap .react-select__control.react-select__control--is-focused {
+    @apply !border-primary/70
+}
+
+.select-wrap .react-select__dropdown-indicator {
+    @apply !px-3
+}
+.select-wrap .react-select__input-container input {
+    @apply  text-sm !text-dim placeholder:text-dim !m-0 !p-0
+}
+.select-wrap .react-select__value-container {
+    @apply px-3 flex items-center
+}
+.select-wrap .react-select__menu {
+    @apply bg-white border border-solid border-neutral border-opacity-15 
+}
+.react-select__option {
+    @apply text-sm text-dim !bg-transparent
+}
+.react-select__option.react-select__option--is-selected {
+    @apply !bg-primary-light !text-primary-dark
+}

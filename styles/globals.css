@@ -1,0 +1,78 @@
+@import './generic/font.css'; 
+@import './generic/font-icon.css'; 
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+
+  body {
+    @apply font-peyda text-right font-medium min-h-screen bg-white;
+    direction: rtl !important;
+  }
+  html {
+    --color-white: 255 255 255 ;
+    --color-black: 0 0 0 ;
+
+    --color-primary: 124 0 255 ;
+    --color-primary-dark: 93 0 191 ;
+    --color-primary-light: 242 229 255 ;
+
+    --color-secondary: 246 0 255 ;
+    --color-secondary-dark: 180 0 186 ;
+    --color-secondary-light: 254 234 255 ;
+
+    --color-dim: 80 80 80 ;
+    --color-dim-dark: 40 40 40 ;
+    --color-dim-light: 240 240 240 ;
+
+    --color-info: 0 212 255 ;
+    --color-info-dark: 0 180 217 ;
+    --color-info-light: 233 251 255 ;
+
+
+    --color-warning: 255 191 0 ;
+    --color-warning-dark: 225 168 0 ;
+    --color-warning-light: 255 250 235 ;
+
+    --color-danger: 255 0 24 ;
+    --color-danger-dark: 181 0 17 ;
+    --color-danger-light: 255 244 245 ;
+    
+    --color-success: 0 255 78 ;
+    --color-success-dark: 0 186 57 ;
+    --color-success-light: 237 255 243 ;
+
+    --color-neutral: 235 235 235 ;
+    --color-neutral-dark: 225 225 225 ;
+    --color-neutral-light: 245 245 245 ;
+
+    --color-gold: 211 174 54 ;
+    --color-gold-dark: 168 123 0 ;
+    --color-gold-light: 254 245 218 ;
+
+    --color-silver: 166 166 166 ;
+    --color-silver-dark: 133 133 133 ;
+    --color-silver-light: 235 235 235 ;
+  }
+
+
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+  }
+  
+  input[type=number] {
+    -moz-appearance: textfield;
+  }
+
+}
+
+@layer utilities {
+  .dir-ltr {
+    direction: ltr;
+  }
+  .hr {
+    @apply w-full block h-0.5 bg-neutral
+  }
+}
