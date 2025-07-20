@@ -2,17 +2,20 @@ import clsx from "clsx"
 
 export default function Text({
     as: Component = 'div',
-    size = 'base', color = 'dim', weight = 'medium', children, className = '', ...props }) {
+    size = 'base', color = 'dim-dark', weight = 'medium', children, className = '', ...props }) {
     const colors = {
-        'dim': 'text-dim',
         'dim-dark': 'text-dim-dark',
-        'info': 'text-info-dark',
-        'danger': 'text-danger-dark',
-        'success': 'text-success-dark',
-        'warning': 'text-warning-dark',
+        'dim-light': 'text-dim-light',
+        'dim-lighter': 'text-dim-lighter',
+        'dim': 'text-dim',
+        'info': 'text-info',
+        'danger': 'text-danger',
+        'success': 'text-success',
+        'warning': 'text-warning',
         'primary': 'text-primary',
     }
     const weights = {
+        light: 'font-light',
         medium: 'font-medium',
         bold: 'font-bold',
     }

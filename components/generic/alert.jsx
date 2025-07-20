@@ -3,36 +3,60 @@ import clsx from "clsx"
 export default function Alert({ variant = 'filled', color = "info", children, className = '', hasIcon = true  }) {
     const colors = {
         filled: {
-            info: 'bg-info-dark text-white',
-            success: 'bg-success-dark text-white',
-            danger: 'bg-danger-dark text-white',
-            warning: 'bg-warning-dark text-white',
+            info: 'bg-info text-white',
+            success: 'bg-success text-white',
+            danger: 'bg-danger text-white',
+            warning: 'bg-warning text-white',
         },
         lightness: {
-            info: 'bg-info-light text-info-dark border-info-dark border-r-[3px] border-solid border-opacity-30',
-            success: 'bg-success-light text-success-dark border-success-dark border-r-[3px] border-solid border-opacity-30',
-            danger: 'bg-danger-light text-danger-dark border-danger-dark border-r-[3px] border-solid border-opacity-30',
-            warning: 'bg-warning-light text-warning-dark border-warning-dark border-r-[3px] border-solid border-opacity-30',
+            info: 'bg-info-light text-white',
+            success: 'bg-success-light text-white',
+            danger: 'bg-danger-light text-white',
+            warning: 'bg-warning-light text-white',
         },
         text: {
-            info: 'text-info-dark !p-0',
-            success: 'text-success-dark !p-0',
-            danger: 'text-danger-dark !p-0',
-            warning: 'text-warning-dark !p-0',
+            info: 'text-info !p-0',
+            success: 'text-success !p-0',
+            danger: 'text-danger !p-0',
+            warning: 'text-warning !p-0',
         },
     }
     const icons = {
-        info: 'icon-info-circle',
-        success: 'icon-check-circle',
-        danger: 'icon-close-circle',
-        warning: 'icon-warning-circle',
+        name:{
+            info: 'icon-info-circle',
+            success: 'icon-check-circle',
+            danger: 'icon-close-circle',
+            warning: 'icon-info-circle',
+        },
+        wrapper:{
+            filled:{
+                info: 'w-9 h-9 text-white bg-black/10',
+                success: 'w-9 h-9 text-white bg-black/10',
+                danger: 'w-9 h-9 text-white bg-black/10',
+                warning: 'w-9 h-9 text-white bg-black/10',
+            },
+            lightness:{
+                info: 'w-9 h-9 text-info-light bg-info',
+                success: 'w-9 h-9 text-success-light bg-success',
+                danger: 'w-9 h-9 text-danger-light bg-danger',
+                warning: 'w-9 h-9 text-warning-light bg-warning',
+            },
+            text:{
+                info: '',
+                success: '',
+                danger: '',
+                warning: '',
+            },
+        },
     }
-    const baseClasses = "p-3 rounded-md text-sm flex items-center"
+    const baseClasses = "flex items-center p-3 rounded-md text-sm"
     return (
         <div className={clsx(baseClasses, colors[variant][color], className)}>
             {
                 hasIcon && (
-                    <i className={clsx(icons[color], 'ml-2',variant === 'text' ? 'text-base' : 'text-md')}></i>
+                    <div className={clsx("flex items-center justify-center shrink-0 rounded-full ml-2",icons['wrapper'][variant][color])}>
+                        <i className={clsx(icons['name'][color],variant === 'text' ? 'text-base' : 'text-md')}></i>
+                    </div>
                 )
             }
           {children}

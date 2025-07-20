@@ -1,64 +1,81 @@
-import Chip from "../generic/chip";
+import Link from "next/link";
+import Btn from "../generic/btn";
 import Table from "../generic/table";
 
 export default function UiTables() {
-    const columns = [
-        {
-            key: "th1",
-            label: "عنوان ستون ۱",
-        },
-        {
-            key: "th2",
-            label: "عنوان ستون ۲",
-        },
-        {
-            key: "th3",
-            label: "عنوان ستون ۳",
-        },
-        {
-            key: "th5",
-            label: "عنوان ستون ۴",
-            renderCell: (_, row) => (
-                <Chip variant="lightness" color={row.status}>
-                    {row.status_text}
-                </Chip>
-            ),
-        },
-        {
-            key: "th4",
-            label: "عنوان ستون ۴",
-        },
-       
-    ];
-    const data = [
-        {
-            th1: 'تست',
-            th2: 'تست',
-            th3: 'تست',
-            th4: 'تست',
-            status: 'success',
-            status_text: 'موفق',
-        },
-        {
-            th1: 'تست',
-            th2: 'تست',
-            th3: 'تست',
-            th4: 'تست',
-            status: 'danger',
-            status_text: 'ناموفق',
-        },
-        {
-            th1: 'تست',
-            th2: 'تست',
-            th3: 'تست',
-            th4: 'تست',
-            status: 'warning',
-            status_text: 'درحال بررسی',
-        },
-    ]
-    return (
-        <div className="container pb-8">
-            <Table columns={columns} data={data}/>
-        </div>
-    )
+  const columns = [
+    {
+      key: "line",
+      label: "ردیف",
+    },
+    {
+      key: "number",
+      label: "شماره لاگین",
+    },
+    {
+      key: "password",
+      label: "پسورد",
+    },
+    {
+      key: "investorPassword",
+      label: "اینوستور پسورد",
+    },
+    {
+      key: "server",
+      label: "سرور",
+    },
+    {
+      key: "platform",
+      label: "پلتفرم معاملاتی",
+    },
+    {
+      key: "type",
+      label: "نوع چالش",
+    },
+    {
+      key: "link",
+      label: "",
+      renderCell: (row) => (
+        <Btn
+          variant="outline"
+          color="primary"
+          icon="icon-left-arrow"
+          iconPlace="left"
+          size="sm"
+          href={row.link}
+          as={Link}
+          className="w-fit mr-auto"
+        >
+          ورود به پنل آنالیز
+        </Btn>
+      ),
+    },
+  ];
+  const data = [
+    {
+      line: 1,
+      number: "۵۶۳۷۵۳۳",
+      password: "11111",
+      investorPassword: "111111",
+      server: "نام سرور",
+      platform: "Roboforex-Demo",
+      type: "BestBenefit-Rail23",
+      link: "/",
+    },
+    {
+      line: 1,
+      number: "۵۶۳۷۵۳۳",
+      password: "11111",
+      investorPassword: "111111",
+      server: "نام سرور",
+      platform: "Roboforex-Demo",
+      type: "BestBenefit-Rail23",
+      link: "/",
+    },
+  ];
+  return (
+    <div>
+      <Table columns={columns} data={data} />
+    </div>
+  );
 }

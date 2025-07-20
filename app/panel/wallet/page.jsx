@@ -1,0 +1,114 @@
+"use client";
+
+import Btn from "@/components/generic/btn";
+import Table from "@/components/generic/table";
+import PanelHeaderSection from "@/components/panel/generic/panel-header-section";
+import StatLink from "@/components/panel/widget/stat/link/stat-link";
+import StatWallet from "@/components/panel/widget/stat/wallet/stat-wallet";
+import walletTransactionsMockData from "@/data/panel/wallet/transactions/mock";
+import walletTransactionsTableData from "@/data/panel/wallet/transactions/table";
+import clsx from "clsx";
+import Link from "next/link";
+import { useState } from "react";
+
+export default function notification() {
+  const { transaction } = walletTransactionsMockData();
+  const { columns } = walletTransactionsTableData();
+
+  const [isAuthenticated, setIsAuthenticated] = useState(true);
+
+  return (
+    <>
+      <PanelHeaderSection
+        className="mb-6"
+        leftSide={
+          <Btn
+            as={Link}
+            href="/panel/wallet/charge"
+            icon="icon-add-circle"
+            className="mr-auto"
+            disabled={!isAuthenticated}
+          >
+            افزایش موجودی
+          </Btn>
+        }
+      >
+        کیف پول
+      </PanelHeaderSection>
+      <div className="flex flex-wrap -m-3 mb-16">
+        <div className={clsx("p-3", isAuthenticated ? "w-1/2" : "w-full")}>
+          <StatWallet
+            className={!isAuthenticated&&"p-0"}
+            icon="icon-dollar-circle"
+            title={isAuthenticated && "نمودار موجودی"}
+            name="موجودی کیف پول"
+            amount="$ ۰"
+            color={isAuthenticated? "neutral-dark" :"transparent"}
+            btn_text={isAuthenticated && "افزایش موجودی"}
+            btn_href="/"
+          />
+        </div>
+        <div
+          className={clsx(
+            "p-3 -m-2",
+            isAuthenticated ? "w-1/2" : "w-full flex items-start"
+          )}
+        >
+          <div className={clsx("p-2", !isAuthenticated ? "w-1/2" : "w-full")}>
+            <StatLink
+            href="/panel/wallet/charge"
+              title="واریز"
+              icon="icon-bottom-right"
+              text="شارژ کیف پول به صورت آنی"
+            />
+          </div>
+          <div className={clsx("p-2", !isAuthenticated ? "w-1/2" : "w-full")}>
+            <StatLink
+            href="/panel/wallet/withdraw"
+              component={isAuthenticated ? Link : "div"}
+              title={isAuthenticated && "برداشت"}
+              icon={isAuthenticated ? "icon-top-left" : "icon-info-circle"}
+              text={
+                isAuthenticated
+                  ? "شارژ کیف پول به صورت آنی"
+                  : "به دلیل عدم احراز هویت، امکان برداشت درامد وجود ندارد."
+              }
+            >
+              {!isAuthenticated && (
+                <Btn
+                  color="primary"
+                  variant="gradient"
+                  icon="icon-left-arrow"
+                  iconPlace="left"
+                  size="sm"
+                  className="mt-5"
+                  as={Link}
+                  href="/login"
+                >
+                  شروع احراز هویت
+                </Btn>
+              )}
+            </StatLink>
+          </div>
+        </div>
+      </div>
+
+      <PanelHeaderSection className="mb-6">
+        تراکنش‌های کیف‌پول
+      </PanelHeaderSection>
+      <Table
+        columns={columns}
+        data={[
+          transaction,
+          transaction,
+          transaction,
+          transaction,
+          transaction,
+          transaction,
+          transaction,
+          transaction,
+        ]}
+      />
+    </>
+  );
+}

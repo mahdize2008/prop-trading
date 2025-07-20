@@ -8,53 +8,45 @@
 @layer base {
 
   body {
-    @apply font-peyda text-right font-medium min-h-screen bg-white;
+    @apply font-['RaviFaNum'] text-right font-medium min-h-screen bg-neutral-darker;
     direction: rtl !important;
   }
   html {
     --color-white: 255 255 255 ;
     --color-black: 0 0 0 ;
 
-    --color-primary: 124 0 255 ;
-    --color-primary-dark: 93 0 191 ;
-    --color-primary-light: 242 229 255 ;
+    --color-primary: 142 114 255 ;
+    --color-primary-dark: 108 86 200 ;
+    --color-primary-light: 34 30 51 ;
+    /* --color-primary-dark: 38 23 100; */
 
-    --color-secondary: 246 0 255 ;
-    --color-secondary-dark: 180 0 186 ;
-    --color-secondary-light: 254 234 255 ;
+    --color-dim: 233 231 235 ;
+    --color-dim-dark: 244 242 245 ;
+    --color-dim-light: 213 210 217 ;
+    --color-dim-lighter: 135 131 143 ;
 
-    --color-dim: 80 80 80 ;
-    --color-dim-dark: 40 40 40 ;
-    --color-dim-light: 240 240 240 ;
-
-    --color-info: 0 212 255 ;
-    --color-info-dark: 0 180 217 ;
-    --color-info-light: 233 251 255 ;
+    --color-info: 143 237 252 ;
+    --color-info-dark: 105 178 190 ;
+    --color-info-light: 25 47 74 ;
 
 
-    --color-warning: 255 191 0 ;
-    --color-warning-dark: 225 168 0 ;
-    --color-warning-light: 255 250 235 ;
+    --color-warning: 255 172 105 ;
+    --color-warning-dark: 193 130 78 ;
+    --color-warning-light: 57 39 25 ;
 
-    --color-danger: 255 0 24 ;
-    --color-danger-dark: 181 0 17 ;
-    --color-danger-light: 255 244 245 ;
+    --color-danger: 255 105 105 ;
+    --color-danger-dark: 179 79 79 ;
+    --color-danger-light: 57 25 28 ;
+    /* --color-danger-dark: 255 65 65 ; */
     
-    --color-success: 0 255 78 ;
-    --color-success-dark: 0 186 57 ;
-    --color-success-light: 237 255 243 ;
+    --color-success: 143 252 183 ;
+    --color-success-dark: 103 169 127 ;
+    --color-success-light: 29 51 44 ;
 
-    --color-neutral: 235 235 235 ;
-    --color-neutral-dark: 225 225 225 ;
-    --color-neutral-light: 245 245 245 ;
-
-    --color-gold: 211 174 54 ;
-    --color-gold-dark: 168 123 0 ;
-    --color-gold-light: 254 245 218 ;
-
-    --color-silver: 166 166 166 ;
-    --color-silver-dark: 133 133 133 ;
-    --color-silver-light: 235 235 235 ;
+    --color-neutral: 26 25 28 ;
+    --color-neutral-dark: 22 21 24 ;
+    --color-neutral-darker: 16 16 18 ;
+    --color-neutral-light: 43 41 47 ;
   }
 
 

@@ -23,8 +23,8 @@ export default {
     },
     fontWeight: {
       thin: '100',
-      extralight: '100',
-      light: '100',
+      extralight: '200',
+      light: '300',
       normal: 'normal',
       medium: '500',
       semibold: '600',
@@ -33,6 +33,7 @@ export default {
       black: '900',
     },
     fontSize: {
+      'xs-plus': '10px',
       xs: '12px',
       sm: '14px',
       base: '16px',
@@ -48,6 +49,9 @@ export default {
       '8xl': '36px',
       '9xl': '38px',
       '10xl': '40px',
+      '12xl': '44px',
+      '15xl': '50px',
+      '20xl': '60px',
     },
     colors: {
       transparent: 'transparent',
@@ -66,6 +70,7 @@ export default {
       dim: {
         DEFAULT: 'rgb(var(--color-dim) / <alpha-value>)',
         light: 'rgb(var(--color-dim-light) / <alpha-value>)',
+        lighter: 'rgb(var(--color-dim-lighter) / <alpha-value>)',
         dark: 'rgb(var(--color-dim-dark) / <alpha-value>)',
       },
       info: {
@@ -91,6 +96,7 @@ export default {
       neutral: {
         DEFAULT: 'rgb(var(--color-neutral) / <alpha-value>)',
         light: 'rgb(var(--color-neutral-light) / <alpha-value>)',
+        darker: 'rgb(var(--color-neutral-darker) / <alpha-value>)',
         dark: 'rgb(var(--color-neutral-dark) / <alpha-value>)',
       },
       
@@ -107,6 +113,10 @@ export default {
       '3xl' : '18px',
       circle : '50%',
       full : '1000px',
+    },
+    backgroundImage:{
+      'primary-gradient': "radial-gradient(100% 100% at 50% 0%, #9B82FD 0%, #6D4AFD 100%)",
+      'success-gradient': "radial-gradient(85% 85% at 100% 84.44%, #4AFAFD 0%, #C2FD82 100%)"
     }
 
   },
