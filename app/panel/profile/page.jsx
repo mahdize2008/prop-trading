@@ -7,12 +7,17 @@ import Heading from "@/components/generic/heading";
 import Text from "@/components/generic/text";
 import PanelHeaderSection from "@/components/panel/generic/panel-header-section";
 import StatLink from "@/components/panel/widget/stat/link/stat-link";
+import useDashboardStore from "@/store/dashboard";
 import Link from "next/link";
 
 export default function profile() {
+
+  const {dashboardstore}=useDashboardStore();
+  console.log(dashboardstore);
+  
   return (
     <>
-      <PanelHeaderSection className="mb-6">کسب درامد</PanelHeaderSection>
+      <PanelHeaderSection className="mb-6">حساب کاربری</PanelHeaderSection>
       <Card
         color="neutral"
         variant="lightness"

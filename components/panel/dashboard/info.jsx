@@ -1,12 +1,18 @@
-import Alert from "@/components/generic/alert";
+"use client"
+
 import Btn from "@/components/generic/btn";
-import Heading from "@/components/generic/heading";
 import Input from "@/components/generic/input";
 import Text from "@/components/generic/text";
 import StatWrap from "../widget/stat/wrap";
+import toast, { Toaster } from "react-hot-toast";
 
-export default function DashbordInfo({ code, link, statList }) {
+export default function DashboardInfo({ code, link, statList }) {
+  const copy = (text) => {
+    navigator.clipboard.writeText(text);
+    toast.success('کپی شد')
+  };
   return (
+    <>
     <div className="rounded-lg border border-neutral-light p-4">
       <div className="flex items-center mb-3">
         <Text weight="bold" size="sm">
@@ -15,7 +21,7 @@ export default function DashbordInfo({ code, link, statList }) {
         <Text size="sm" className="mr-auto ml-3">
           کد شما : {code}
         </Text>
-        <Btn variant="text" color="dim">
+        <Btn variant="text" color="dim" onClick={() => copy(code)}>
           <i className="icon-copy"></i>
         </Btn>
       </div>
@@ -29,12 +35,14 @@ export default function DashbordInfo({ code, link, statList }) {
           </Text>
           <div className="w-full flex items-center">
             <Input wrapClasses="grow" defaultValue={link} disabled />
-            <Btn color="neutral-light" className="mr-2">
+            <Btn color="neutral-light" className="mr-2" as="div" onClick={() => copy(link)}>
               کپی لینک
             </Btn>
           </div>
         </div>
       </div>
     </div>
+    <Toaster/>
+    </>
   );
 }

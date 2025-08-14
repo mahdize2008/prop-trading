@@ -1,7 +1,7 @@
 import Btn from "@/components/generic/btn";
 import Link from "next/link";
 
-const dashbordMockData = () => {
+const dashboardMockData = () => {
   const statMock = {
     name: "درامد شما تا کنون",
     icon: "icon-dollar",
@@ -77,4 +77,4 @@ const dashbordMockData = () => {
 
   return { tableColumnsMock, statMock, statMock2, tableDataMock, code, link };
 };
-export default dashbordMockData;
+export default dashboardMockData;
