@@ -9,13 +9,15 @@ import Text from "@/components/generic/text";
 import Chip from "@/components/generic/chip";
 import clsx from "clsx";
 import { usePathname } from "next/navigation";
+import useDashboardStore from "@/store/dashboard";
 
 export default function PanelSidebar({className=""}) {
   const { menu } = SidebarData();
   const pagePath = usePathname();
+  const {dashboardstore}=useDashboardStore()
 
   return (
-    <div className={clsx( className,"w-[265px] py-2 flex flex-col justify-between shrink-0")}>
+    <div className={clsx( className,"w-[300px] py-6 flex flex-col justify-between shrink-0")}>
       <div>
         <Logo className="mb-10" />
         <ul className="mb-6">
@@ -47,9 +49,16 @@ export default function PanelSidebar({className=""}) {
         <Text size="sm" color="primary" className="ml-4">
           حساب کاربری
         </Text>
+        {
+          dashboardstore.verify?
         <Chip size="sm" color="success" variant="lightness">
           احراز شده
         </Chip>
+        :
+        <Chip size="sm" color="danger" variant="lightness">
+          احراز نشده
+        </Chip>
+        }
         <i className="icon-left1 text-primary text-md mr-auto"></i>
       </Link>
     </div>

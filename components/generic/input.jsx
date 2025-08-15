@@ -21,7 +21,6 @@ export default function Input({
   totalInventory,
   ...props
 }) {
-  const [value, setValue] = useState(defaultValue);
 
   const generateBorderColor = {
     danger: "!border-danger",
@@ -57,7 +56,7 @@ export default function Input({
         )}
         <input
           type="text"
-          defaultValue={value}
+          defaultValue={defaultValue}
           className="w-full h-full bg-transparent border-0 outline-none shadow-none px-3 text-primary placeholder:text-dim-lighter text-sm font-medium"
           {...props}
         />

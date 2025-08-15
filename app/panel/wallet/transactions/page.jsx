@@ -7,6 +7,7 @@ import walletTransactionsTableData from "@/data/panel/wallet/transactions/table"
 export default function notification() {
   const {transaction}=walletTransactionsMockData()
   const {columns}=walletTransactionsTableData()
+  
 
   return (
     <>
