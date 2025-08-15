@@ -1,4 +1,4 @@
-import {api} from "../fetch";
+import { api } from "./fetch";
 
 async function dashboardData() {
   const fetch = await api();

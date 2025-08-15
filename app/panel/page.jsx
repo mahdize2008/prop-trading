@@ -15,8 +15,23 @@ import Link from "next/link";
 
 export default function panel() {
   const { statMock, tableColumnsMock, tableDataMock, link, code, statMock2 } =
-    dashboardMockData();  
+    dashboardMockData();
     const {dashboardstore}=useDashboardStore()
+
+    const statOne= [
+      {
+        name: "درامد شما تا کنون",
+        icon: "icon-dollar",
+        amount: `${dashboardstore?.income} $`,
+        color: "neutral-dark",
+      },
+      {
+        name: "چالش‌های شرکت کرده",
+        icon: "icon-thunder",
+        amount: `${dashboardstore?.challenge_count} چالش`,
+        color: "neutral-dark",
+      },
+    ]
 
 
   return (
@@ -41,7 +56,7 @@ export default function panel() {
           داشبورد
         </PanelHeaderSection>
         <div className="flex -m-2">
-          <StatWrap className="w-1/2 p-2" statList={[statMock, statMock]} />
+          <StatWrap className="w-1/2 p-2" statList={statOne} />
         </div>
       </div>
       <div className="mb-8">
@@ -98,7 +113,7 @@ export default function panel() {
 
       <DashboardInfo
         statList={[statMock2, statMock2]}
-        link={link}
+        link={`http://novaprop.org/register/?ref=${dashboardstore.referral_code}`}
         code={dashboardstore.referral_code}
       />
     </>
