@@ -8,23 +8,17 @@ import Text from "@/components/generic/text";
 import StatWrap from "../widget/stat/wrap";
 import affilateStatData from "@/data/panel/affilate/stat";
 
-import toast ,{Toaster} from "react-hot-toast";
+import useCopy from "@/utils/copy";
 
-export default function AffilateInfo({ code, link }) {
-  const copy = (text) => {
-    navigator.clipboard.writeText(text);
-    toast.success('کپی شد')
-  };
-  const { details } = affilateStatData();
+export default function AffilateInfo({ code, link,stats }) {
   return (
     <div className="w-3/5 p-2">
-      <Toaster/>
       <div className="rounded-lg border border-neutral-light p-4">
         <Heading variant="h5" className="mb-3">
           برداشت سود
         </Heading>
         <div className="flex -m-1.5 mb-2">
-          <StatWrap statList={details} className="w-1/2 p-1.5" />
+          <StatWrap statList={stats} className="w-1/2 p-1.5" />
         </div>
         <Alert color="success" variant="lightness" className="mb-4">
           سود پنل همکاری برای هر خرید ۵ درصد میباشد و شامل تمامی خرید های رفرال
@@ -36,7 +30,7 @@ export default function AffilateInfo({ code, link }) {
             <Text size="sm" className="mr-auto ml-3">
               کد شما : {code}
             </Text>
-            <Btn variant="text" color="dim" onClick={() => copy(code)}>
+            <Btn variant="text" color="dim" onClick={() => useCopy(code)}>
               <i className="icon-copy"></i>
             </Btn>
           </div>
@@ -52,7 +46,7 @@ export default function AffilateInfo({ code, link }) {
             <Input wrapClasses="grow" defaultValue={link} disabled />
             <Btn
               color="neutral-light"
-              onClick={() => copy(link)}
+              onClick={() => useCopy(link)}
               className="mr-2"
             >
               کپی لینک

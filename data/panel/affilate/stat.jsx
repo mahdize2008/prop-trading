@@ -1,17 +1,17 @@
-const affilateStatData = () => {
-  const details = [
+const affilateStatData = (referral) => {
+  const stats = [
     {
       name: "تعداد افراد معرفی‌شده",
       icon: "icon-user",
-      amount: "0",
+      amount: referral?.list?.referral_count,
     },
     {
-      name: "کمیسیون خرید زیرمجموعه‌ها",
+      name: "کمیسیون زیرمجموعه‌ها",
       icon: "icon-dollar",
-      amount: "$۰.۰۰",
-    },
+      amount: referral?.list?.referral_commission,
+    }
   ];
 
-  return {details};
+  return {stats};
 };
 export default affilateStatData;

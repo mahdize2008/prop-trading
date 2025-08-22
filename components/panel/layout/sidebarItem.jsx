@@ -1,11 +1,12 @@
 "use client";
 
+import Chip from "@/components/generic/chip";
 import Text from "@/components/generic/text";
 import clsx from "clsx";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-export default function SidebarItem({ name, icon, href, childern }) {
+export default function SidebarItem({ name, icon, href,chip,chipTheme, childern }) {
     const pagePath = usePathname();
   return (
     <li className="mb-2 last:mb-0">
@@ -20,6 +21,11 @@ export default function SidebarItem({ name, icon, href, childern }) {
         <Text size="sm" color="dim-light">
           {name}
         </Text>
+        {chip&&
+        <Chip variant="lightness" color={chipTheme} className="mr-auto">
+          {chip}
+        </Chip>
+        }
       </Link>
       {childern?.length && (
         <ul className="border-r border-r-dim-lighter mr-5 mt-2">

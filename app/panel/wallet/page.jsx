@@ -3,19 +3,21 @@
 import Btn from "@/components/generic/btn";
 import Table from "@/components/generic/table";
 import PanelHeaderSection from "@/components/panel/generic/panel-header-section";
+import WalletTable from "@/components/panel/wallet/table";
 import StatLink from "@/components/panel/widget/stat/link/stat-link";
 import StatWallet from "@/components/panel/widget/stat/wallet/stat-wallet";
 import walletTransactionsMockData from "@/data/panel/wallet/transactions/mock";
 import walletTransactionsTableData from "@/data/panel/wallet/transactions/table";
+import tableData from "@/services/table";
+import useInfoStore from "@/store/dashboard";
 import clsx from "clsx";
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function notification() {
-  const { transaction } = walletTransactionsMockData();
-  const { columns } = walletTransactionsTableData();
 
-  const [isAuthenticated, setIsAuthenticated] = useState(true);
+  const {infoStore}=useInfoStore()
+  console.log(infoStore);
 
   return (
     <>
@@ -27,7 +29,7 @@ export default function notification() {
             href="/panel/wallet/charge"
             icon="icon-add-circle"
             className="mr-auto"
-            disabled={!isAuthenticated}
+            disabled={!infoStore.verify}
           >
             افزایش موجودی
           </Btn>
@@ -36,25 +38,25 @@ export default function notification() {
         کیف پول
       </PanelHeaderSection>
       <div className="flex flex-wrap -m-3 mb-16">
-        <div className={clsx("p-3", isAuthenticated ? "w-1/2" : "w-full")}>
+        <div className={clsx("p-3", infoStore.verify ? "w-1/2" : "w-full")}>
           <StatWallet
-            className={!isAuthenticated&&"p-0"}
+            className={!infoStore.verify&&"p-0"}
             icon="icon-dollar-circle"
-            title={isAuthenticated && "نمودار موجودی"}
+            title={infoStore.verify && "نمودار موجودی"}
             name="موجودی کیف پول"
-            amount="$ ۰"
-            color={isAuthenticated? "neutral-dark" :"transparent"}
-            btn_text={isAuthenticated && "افزایش موجودی"}
+            amount={infoStore.Wallet_balance}
+            color={infoStore.verify? "neutral-dark" :"transparent"}
+            btn_text={infoStore.verify && "افزایش موجودی"}
             btn_href="/"
           />
         </div>
         <div
           className={clsx(
             "p-3 -m-2",
-            isAuthenticated ? "w-1/2" : "w-full flex items-start"
+            infoStore.verify ? "w-1/2" : "w-full flex items-start"
           )}
         >
-          <div className={clsx("p-2", !isAuthenticated ? "w-1/2" : "w-full")}>
+          <div className={clsx("p-2", !infoStore.verify ? "w-1/2" : "w-full")}>
             <StatLink
             href="/panel/wallet/charge"
               title="واریز"
@@ -62,19 +64,19 @@ export default function notification() {
               text="شارژ کیف پول به صورت آنی"
             />
           </div>
-          <div className={clsx("p-2", !isAuthenticated ? "w-1/2" : "w-full")}>
+          <div className={clsx("p-2", !infoStore.verify ? "w-1/2" : "w-full")}>
             <StatLink
             href="/panel/wallet/withdraw"
-              component={isAuthenticated ? Link : "div"}
-              title={isAuthenticated && "برداشت"}
-              icon={isAuthenticated ? "icon-top-left" : "icon-info-circle"}
+              component={infoStore.verify ? Link : "div"}
+              title={infoStore.verify && "برداشت"}
+              icon={infoStore.verify ? "icon-top-left" : "icon-info-circle"}
               text={
-                isAuthenticated
+                infoStore.verify
                   ? "شارژ کیف پول به صورت آنی"
                   : "به دلیل عدم احراز هویت، امکان برداشت درامد وجود ندارد."
               }
             >
-              {!isAuthenticated && (
+              {!infoStore.verify && (
                 <Btn
                   color="primary"
                   variant="gradient"
@@ -96,19 +98,7 @@ export default function notification() {
       <PanelHeaderSection className="mb-6">
         تراکنش‌های کیف‌پول
       </PanelHeaderSection>
-      <Table
-        columns={columns}
-        data={[
-          transaction,
-          transaction,
-          transaction,
-          transaction,
-          transaction,
-          transaction,
-          transaction,
-          transaction,
-        ]}
-      />
+      <WalletTable/>
     </>
   );
 }

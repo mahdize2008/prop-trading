@@ -22,9 +22,18 @@ export default function Stat({
         </Text>
       </div>
       <div className="text-dim flex items-center justify-end">
+        {
+          amount&&
         <Text size="sm" weight="bold" color="dim-dark">
-          {value || amount}
+          {amount}
         </Text>
+        }
+        {
+          value&&
+        <Text size="sm" weight="bold" color="dim-dark">
+          {value}
+        </Text>
+        }
         {title.length>0 && (
           <Text size="xs" weight="light" color="dim" className="mr-1">
             {title}

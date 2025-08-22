@@ -7,10 +7,10 @@ import Table from "@/components/generic/table";
 import StatWallet from "../widget/stat/wallet/stat-wallet";
 import StatLink from "../widget/stat/link/stat-link";
 import DashboardInfo from "./info";
-import dashboardMockData from "@/data/panel/dashboard/mock";
+import dashboardMockData from "@/data/panel/dashboard/table";
 import Link from "next/link";
 import { useEffect } from "react";
-import useDashboardStore from "@/store/dashboard";
+import useInfoStore from "@/store/dashboard";
 
 export default function DashboardWrap () {
     const { statMock, tableColumnsMock, tableDataMock, link, code, statMock2 } =

@@ -8,7 +8,8 @@ import clsx from "clsx";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { redirect } from "next/navigation";
-import toast, { Toaster } from "react-hot-toast";
+import toast from "react-hot-toast";
+import useCopy from "@/utils/copy";
 
 export default function TransactionStatus({
   msg,
@@ -23,10 +24,6 @@ export default function TransactionStatus({
   hasRedirectTimer = false,
   children,
 }) {
-  const copy = (text) => {
-    navigator.clipboard.writeText(text);
-    toast.success('کپی شد')
-  };
   const [timer, setTimer] = useState(5);
   useEffect(() => {
     const tiemrInterval = setInterval(() => {
@@ -73,7 +70,7 @@ export default function TransactionStatus({
             color="neutral-light"
             size="xs"
             className="w-full justify-center mb-8"
-            onClick={() => copy(TransactionHash)}
+            onClick={() => useCopy(TransactionHash)}
           >
             کپی هش تراکنش
           </Btn>
@@ -96,7 +93,6 @@ export default function TransactionStatus({
           </Btn>
         </div>
       </Card>
-      <Toaster/>
       {children}
     </>
   );

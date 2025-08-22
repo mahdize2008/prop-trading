@@ -1,10 +1,8 @@
 import { create } from "zustand";
 
-const useDashboardStore = create((set) => ({
-  dashboardstore: {},
-  statOne: [],
-  statTwo: [],
-  setDashboardstore: (newData) =>set({dashboardstore: newData}),
+const useInfoStore = create((set) => ({
+  infoStore: {},
+  setInfoStore: (newData) =>set({infoStore: newData}),
 }));
 
-export default useDashboardStore;
+export default useInfoStore;

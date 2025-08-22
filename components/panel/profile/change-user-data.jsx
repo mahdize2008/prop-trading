@@ -4,12 +4,12 @@ import Card from "@/components/generic/card";
 import Input from "@/components/generic/input";
 import Btn from "@/components/generic/btn";
 import Link from "next/link";
-import useDashboardStore from "@/store/dashboard";
+import useInfoStore from "@/store/dashboard";
 import { useForm } from "react-hook-form";
 
 export default function ProfileChangeUserData() {
   const { register, handleSubmit } = useForm();
-  const { dashboardstore } = useDashboardStore();
+  const { infoStore } = useInfoStore();
 
   function changeData(data){
     console.log(data);
@@ -24,19 +24,19 @@ export default function ProfileChangeUserData() {
         <form>
           <Input
             label="نام و نام خانوادگی"
-            defaultValue={dashboardstore?.user?.full_name}
+            defaultValue={infoStore?.user?.full_name}
             wrapClasses="mb-5"
             {...register("full_name")}
           />
           <Input
             label="نام کاربری"
-            defaultValue={dashboardstore?.user?.username}
+            defaultValue={infoStore?.user?.username}
             wrapClasses="mb-5"
             {...register("username")}
           />
           <Input
             label="ایمیل"
-            defaultValue={dashboardstore?.user?.email}
+            defaultValue={infoStore?.user?.email}
             wrapClasses="mb-5"
             {...register("email")}
           />

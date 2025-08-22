@@ -7,11 +7,11 @@ import Heading from "@/components/generic/heading";
 import Text from "@/components/generic/text";
 import PanelHeaderSection from "@/components/panel/generic/panel-header-section";
 import StatLink from "@/components/panel/widget/stat/link/stat-link";
-import useDashboardStore from "@/store/dashboard";
+import useInfoStore from "@/store/dashboard";
 import Link from "next/link";
 
 export default function profile() {
-  const { dashboardstore } = useDashboardStore();
+  const { infoStore } = useInfoStore();
 
   return (
     <>
@@ -26,9 +26,9 @@ export default function profile() {
             <i className="icon-avatar1 text-sm text-dim-dark"></i>
           </div>
           <Heading color="dim-dark" variant="h6" className="ml-3">
-            {dashboardstore?.user?.full_name}
+            {infoStore?.user?.full_name}
           </Heading>
-          {dashboardstore?.verify ? (
+          {infoStore?.verify ? (
             <Chip color="success" variant="outline">
               تایید شده
             </Chip>
@@ -53,11 +53,11 @@ export default function profile() {
         <div>
           <Text size="sm" color="dim-dark" className="flex items-center mb-5">
             <i className="icon-avatar1 ml-2"></i>
-            {dashboardstore?.user?.username}
+            {infoStore?.user?.username}
           </Text>
           <Text size="sm" color="dim-dark" className="flex items-center mb-5">
             <i className="icon-massage1 ml-2"></i>
-            {dashboardstore?.user?.email}
+            {infoStore?.user?.email}
           </Text>
           <Btn
             icon="icon-edit"

@@ -1,4 +1,4 @@
-const affilateMockData = () => {
+const affilateMockData = (list) => {
   const tableColumns = [
     {
       key: "line",
@@ -13,14 +13,13 @@ const affilateMockData = () => {
       label: "تاریخ عضویت",
     },
   ];
-  const code = "۸۷۶۵۶۶۳";
-  const link =
-    "http://novaprop.org/dashboard/referral-withdrawal/?ref=1d93c905";
-  const invited = {
-    line: 1,
-    email: "ahmaderenbiuyg@gmail.com",
-    history: "12 Dec 2024",
-  };
-  return {tableColumns, code, link, invited };
+  const inviteList =list?.length ? list.map(item=>{
+    return{
+      line: list.line,
+      email: list.email,
+      history: list.history,
+    }
+  }):[]
+  return {tableColumns, inviteList };
 };
 export default affilateMockData;

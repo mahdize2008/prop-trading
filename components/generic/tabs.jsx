@@ -17,7 +17,6 @@ export default function Tabs({
     changeTab(id);
   };
 
-  console.log(activeItem);
 
   return (
     <ul className={wrapclass}>

@@ -9,24 +9,30 @@ import Text from "@/components/generic/text";
 import PanelHeaderSection from "@/components/panel/generic/panel-header-section";
 import { loginUser } from "@/services/auth";
 import { useForm } from "react-hook-form";
-import toast, { Toaster } from "react-hot-toast";
-import { redirect } from "next/navigation";
+import toast from "react-hot-toast";
+import { useRouter } from "next/navigation";
+import { useState } from "react";
 
 export default function LoginStepOne() {
   const { register, handleSubmit } = useForm();
+  const [isLoading, setIsLoading] = useState(false);
+  const router=useRouter()
+
   async function submitForm(data) {
-    const {res,status} = await loginUser(data);
-    console.log(res);
-    if (status === 200) {
-      toast.success(res.message);
-      redirect("/panel");
-    } else {
-      toast.error(res.error);
+    try {
+      setIsLoading(true);
+      const res = await loginUser(data);
+      toast.success(res.data.message);
+      router.push('/panel');
+    } catch (err) {
+      console.error(err);
+    }
+    finally{
+      setIsLoading(false);
     }
   }
   return (
     <>
-      <Toaster />
       <Card color="neutral-dark" className="p-6 mb-4">
         <PanelHeaderSection border={false} shape className="mb-6">
           ورود به نئوپراپ
@@ -52,6 +58,8 @@ export default function LoginStepOne() {
               icon="icon-left-arrow"
               iconPlace="left"
               type="submit"
+              loading={isLoading}
+              disabled={isLoading}
               onClick={handleSubmit(submitForm)}
             >
               ورود

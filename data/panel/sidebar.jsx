@@ -1,4 +1,9 @@
+"use client";
+
+import useInfoStore from "@/store/dashboard"
+
 const SidebarData=()=>{
+    const {infoStore}=useInfoStore()
     const menu=[
         {
             name : "داشبورد و پنل آنالیز",
@@ -13,12 +18,16 @@ const SidebarData=()=>{
         {
             name : "چالش های من",
             icon: "icon-wallet",
-            href : "/panel/challenges"
+            href : "/panel/challenges",
+            chipTheme:"success",
+            chip:infoStore.challenge_count
         },
         {
             name : "کیف پول",
             icon: "icon-side",
             href : "/panel/wallet",
+            chipTheme:"success",
+            chip:infoStore.Wallet_balance,
             children:[
                 {
                     name : "افزایش موجودی",
@@ -40,7 +49,9 @@ const SidebarData=()=>{
         {
             name : "اعلان‌ها",
             icon: "icon-side",
-            href : "/panel/notifications"
+            href : "/panel/notifications",
+            chipTheme:"danger",
+            chip:infoStore.news_count
         },
         {
             name : "کسب درآمد",
