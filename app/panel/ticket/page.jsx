@@ -1,12 +1,10 @@
 "use client";
 
 import Pagination from "@/components/generic/pagination";
-import SelectBox from "@/components/generic/select";
 import PanelHeaderSection from "@/components/panel/generic/panel-header-section";
 import TicketItem from "@/components/panel/ticket/ticket-item";
 import StatWrap from "@/components/panel/widget/stat/wrap";
 import ticketStatData from "@/data/panel/ticket/stat";
-import ticketMockData from "@/data/panel/ticket/ticket-mock";
 import ticketsListData from "@/data/panel/ticket/tickets";
 import { ticketsData } from "@/services/tickets";
 import useInfoStore from "@/store/dashboard";
@@ -24,9 +22,8 @@ export default function ticket() {
       const {list , pagination} = await ticketsData({page,limit});
       setTicketslist(list)
       setPagination(pagination)
-      console.log(list);
     }catch(err){
-      console.log(err);      
+      console.log(err);
     }
   };
 

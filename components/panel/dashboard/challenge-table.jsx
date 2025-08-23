@@ -1,18 +1,13 @@
-import Btn from "@/components/generic/btn";
-import PanelHeaderSection from "../generic/panel-header-section";
 import Table from "@/components/generic/table";
-import Link from "next/link";
 import { useEffect, useState } from "react";
 import tableData from "@/services/table";
 import Tabs from "@/components/generic/tabs";
 import challengesTableData from "@/data/panel/challenges/table";
-import Pagination from "@/components/generic/pagination";
 import api_endpoints from "@/constants/api/endpoints";
 
-export default function ChallengeTable({pagination=false}) {
+export default function ChallengeTable() {
   const [rowsData, setRowsData] = useState([]);
-  const [paginationTotal, setPaginationTotal] = useState(1);
-  const [paginationCurrent, setPaginationcurrent] = useState(1);
+  const [pagination, setPagination] = useState({totalPages:1,currentPage:1});
   const [activeTab, setActiveTab] = useState("ACCOUNT1");
   const fetchData = async (page=1,limit=10) => {
     setRowsData([])
@@ -20,8 +15,7 @@ export default function ChallengeTable({pagination=false}) {
       const endpoint = api_endpoints.ACCOUNT[activeTab];
       const data = await tableData({ endpoint , page,limit });     
         setRowsData(data.data?.list?.accounts);
-        setPaginationTotal(data?.pagination?.totalPages);
-        setPaginationcurrent(data?.pagination?.currentPage);
+        setPagination(data?.pagination);
       return;
     } catch (err) {
       console.error(err);
@@ -78,8 +72,8 @@ export default function ChallengeTable({pagination=false}) {
         data={challengesTableRows}
         className="mb-8"
         refreshData={()=>fetchData()}
-        paginationTotal={paginationTotal}
-        paginationCurrent={paginationCurrent}
+        paginationTotal={pagination.totalPages}
+        paginationCurrent={pagination.currentPage}
         hasPagination
       />
     </>

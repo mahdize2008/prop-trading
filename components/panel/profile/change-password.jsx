@@ -3,7 +3,6 @@
 import Card from "@/components/generic/card";
 import Input from "@/components/generic/input";
 import Btn from "@/components/generic/btn";
-import Link from "next/link";
 import { useForm } from "react-hook-form";
 
 export default function ProfileChangePassword() {

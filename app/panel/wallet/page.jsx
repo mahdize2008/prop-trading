@@ -1,23 +1,17 @@
 "use client";
 
 import Btn from "@/components/generic/btn";
-import Table from "@/components/generic/table";
 import PanelHeaderSection from "@/components/panel/generic/panel-header-section";
 import WalletTable from "@/components/panel/wallet/table";
 import StatLink from "@/components/panel/widget/stat/link/stat-link";
 import StatWallet from "@/components/panel/widget/stat/wallet/stat-wallet";
-import walletTransactionsMockData from "@/data/panel/wallet/transactions/mock";
-import walletTransactionsTableData from "@/data/panel/wallet/transactions/table";
-import tableData from "@/services/table";
 import useInfoStore from "@/store/dashboard";
 import clsx from "clsx";
 import Link from "next/link";
-import { useEffect, useState } from "react";
 
 export default function notification() {
 
   const {infoStore}=useInfoStore()
-  console.log(infoStore);
 
   return (
     <>

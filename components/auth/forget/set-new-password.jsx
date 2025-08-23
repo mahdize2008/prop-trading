@@ -3,7 +3,6 @@ import AuthFooter from "../layout/footer";
 import PanelHeaderSection from "@/components/generic/panel-header-section";
 import Input from "@/components/generic/input";
 import Btn from "@/components/generic/btn";
-import Link from "next/link";
 
 export default function RegisterSetNewPassword({ setStep }) {
   return (

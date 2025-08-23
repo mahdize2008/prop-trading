@@ -8,7 +8,6 @@ import clsx from "clsx";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { redirect } from "next/navigation";
-import toast from "react-hot-toast";
 import useCopy from "@/utils/copy";
 
 export default function TransactionStatus({

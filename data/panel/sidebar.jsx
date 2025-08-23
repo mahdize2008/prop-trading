@@ -11,11 +11,6 @@ const SidebarData=()=>{
             href : "/panel"
         },
         {
-            name : "خرید چالش جدید",
-            icon: "icon-wallet",
-            href : "/panel/buy-challenge"
-        },
-        {
             name : "چالش های من",
             icon: "icon-wallet",
             href : "/panel/challenges",

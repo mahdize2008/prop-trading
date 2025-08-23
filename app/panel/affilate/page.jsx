@@ -5,7 +5,7 @@ import Table from "@/components/generic/table";
 import AffilateInfo from "@/components/panel/affilate/info";
 import PanelHeaderSection from "@/components/panel/generic/panel-header-section";
 import api_endpoints from "@/constants/api/endpoints";
-import affilateMockData from "@/data/panel/affilate/mock";
+import affilateTableData from "@/data/panel/affilate/table";
 import affilateStatData from "@/data/panel/affilate/stat";
 import { referralData } from "@/services/affilate";
 import tableData from "@/services/table";
@@ -17,19 +17,20 @@ export default function affilate() {
   const [tableRowsList, setTableRowsList] = useState([]);
 
   const fetch = async () => {
-    const data = await tableData({
-      endpoint: api_endpoints.REFERRAL.INVITEDLIST,
-    });
-    console.log(data);
-
-    setTableRowsList(data.data.invited_users);
+    try{
+      const data = await tableData({
+        endpoint: api_endpoints.REFERRAL.INVITEDLIST,
+      });
+      setTableRowsList(data.data.invited_users);
+    }catch(err){
+      console.error(err);
+    }
   };
 
   const fetchReferral = async () => {
     try {
       const res = await referralData();
       setReferral(res);
-      console.log(res);
     } catch (err) {
       console.error(err);
     }
@@ -39,7 +40,7 @@ export default function affilate() {
     fetch();
     fetchReferral();
   }, []);
-  const { tableColumns, inviteList } = affilateMockData(tableRowsList);
+  const { tableColumns, inviteList } = affilateTableData(tableRowsList);
 
   const { stats } = affilateStatData(referral);
 

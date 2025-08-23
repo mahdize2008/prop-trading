@@ -83,7 +83,7 @@ export default function TicketCreateForm() {
       />
       <div className="w-full p-2">
         <input type="file" className="hidden" id="chooseFile" />
-        <div className="flex items-center justify-center py-14 rounded-base border border-neutral-light">
+        <div className="flex items-center justify-center rounded-base border border-neutral-light py-14">
           <Btn
             as="label"
             htmlFor="chooseFile"

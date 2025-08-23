@@ -3,29 +3,28 @@
 import Chip from "@/components/generic/chip";
 import ChatWrap from "@/components/panel/generic/chat-wrap";
 import PanelHeaderSection from "@/components/panel/generic/panel-header-section";
-import ticketMockData from "@/data/panel/ticket/ticket-mock";
 import { ticketRepliesData } from "@/services/tickets";
 import setStatus from "@/utils/setStatus";
 import { useEffect, useState } from "react";
 
-export default function TicketItemDetails({ params }) { 
-  const [ticket,setTicket]=useState({});
-  const [replies,setReplies]=useState({});
+export default function TicketItemDetails({ params }) {
+  const [ticket, setTicket] = useState({});
+  const [replies, setReplies] = useState({});
 
-  const chipStatus=setStatus(ticket?.status)
-  
+  const chipStatus = setStatus(ticket?.status);
+
   const fetch = async () => {
     const { id } = await params;
-    const res =await ticketRepliesData(id);
-    setTicket(res?.ticket)
-    setReplies(res?.replies)
+
+    const res = await ticketRepliesData(id);
+    setTicket(res?.ticket);
+    setReplies(res?.replies);
   };
 
   useEffect(() => {
-    fetch()
+    fetch();
   }, []);
 
-  const { ticketMock } = ticketMockData();
 
   return (
     <>
@@ -41,9 +40,9 @@ export default function TicketItemDetails({ params }) {
           </Chip>
         }
       >
-        جزئیات تیکت شماره‌ی {ticketMock.number}
+        جزئیات تیکت شماره‌ی {ticket.id}
       </PanelHeaderSection>
-      <ChatWrap chats={replies} />
+      {replies?.length && <ChatWrap chats={replies} />}
     </>
   );
 }

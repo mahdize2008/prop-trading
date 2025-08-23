@@ -3,7 +3,6 @@
 import Card from "@/components/generic/card";
 import Input from "@/components/generic/input";
 import Btn from "@/components/generic/btn";
-import Link from "next/link";
 import useInfoStore from "@/store/dashboard";
 import { useForm } from "react-hook-form";
 

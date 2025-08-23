@@ -5,7 +5,6 @@ import api from "./apiClient";
 const tableData = async ({ endpoint, page = 1, limit = 10 }) => { 
   try {
     const res = await api.get(endpoint, { params: { page, limit } });
-    console.log(res);
     
     return {
       data:res?.data,

@@ -4,7 +4,6 @@ import clsx from "clsx";
 import Text from "./text";
 import Alert from "./alert";
 import Btn from "./btn";
-import { useState } from "react";
 
 export default function Input({
   label,

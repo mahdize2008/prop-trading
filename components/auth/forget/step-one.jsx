@@ -2,8 +2,6 @@ import Card from "@/components/generic/card";
 import AuthFooter from "../layout/footer";
 import Input from "@/components/generic/input";
 import Btn from "@/components/generic/btn";
-import Link from "next/link";
-import Text from "@/components/generic/text";
 import PanelHeaderSection from "@/components/panel/generic/panel-header-section";
 
 export default function ForgetStepOne({ setStep }) {

@@ -6,7 +6,6 @@ import Heading from "@/components/generic/heading";
 import Input from "@/components/generic/input";
 import Text from "@/components/generic/text";
 import StatWrap from "../widget/stat/wrap";
-import affilateStatData from "@/data/panel/affilate/stat";
 
 import useCopy from "@/utils/copy";
 

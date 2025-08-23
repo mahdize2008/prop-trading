@@ -1,8 +1,6 @@
 import Card from "@/components/generic/card";
-import PanelHeaderSection from "../generic/panel-header-section";
 import Input from "@/components/generic/input";
 import Btn from "@/components/generic/btn";
-import Text from "@/components/generic/text";
 import SelectBox from "@/components/generic/select";
 import Link from "next/link";
 

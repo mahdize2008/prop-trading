@@ -1,7 +1,6 @@
 import Chip from "@/components/generic/chip";
 
 const walletTransactionsTableData = (list) => {
-  console.log(list);
   
   const columns = [
     {

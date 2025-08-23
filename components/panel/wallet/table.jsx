@@ -17,8 +17,6 @@ export default function WalletTable({}) {
     });
     setTableDataList(data.data.list);
     setTableDataPagination(data.pagination);
-    console.log(data.pagination);
-    
   };
   useEffect(() => {
     fetch();
@@ -26,7 +24,6 @@ export default function WalletTable({}) {
 
   const { columns, transactions } = walletTransactionsTableData(tableDataList);
 
-  console.log(tableDataPagination);
   
 
   return (

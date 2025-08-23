@@ -1,4 +1,4 @@
-const affilateMockData = (list) => {
+const affilateTableData = (list) => {
   const tableColumns = [
     {
       key: "line",
@@ -15,11 +15,11 @@ const affilateMockData = (list) => {
   ];
   const inviteList =list?.length ? list.map(item=>{
     return{
-      line: list.line,
-      email: list.email,
-      history: list.history,
+      line: item.line,
+      email: item.email,
+      history: item.history,
     }
   }):[]
   return {tableColumns, inviteList };
 };
-export default affilateMockData;
+export default affilateTableData;

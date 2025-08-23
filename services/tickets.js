@@ -7,7 +7,6 @@ export const ticketsData = async ({page=1,limit=10}) => {
   try{
     
     const res = await api.get(api_endpoints.TICKETS.LIST, { params: { page, limit }});
-   console.log(res);
    
     return {
       list : res?.data?.tickets ,
@@ -29,7 +28,6 @@ export const ticketsData = async ({page=1,limit=10}) => {
 export const ticketRepliesData = async (id) => {
   try{
     const res = await api.get(`${api_endpoints.TICKETS.REPLIES}${id}`);
-    console.log(res);
     
 
     return {
